@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     network_mode: "host"
     environment:
-      - REQUIREPASS=<password>
+      - REQUIREPASS=password1234
       - CLIENTHOST=192.168.137.101
       - CLIENTPORT=6379
     volumes:
@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     network_mode: "host"
     environment:
-      - REQUIREPASS=<password>
+      - REQUIREPASS=password1234
       - CLIENTHOST=192.168.137.101
       - CLIENTPORT=6380
     volumes:
