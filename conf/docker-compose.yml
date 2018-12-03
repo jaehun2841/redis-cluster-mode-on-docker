@@ -1,0 +1,29 @@
+version: '3'
+services:
+  redis-master:
+    image: redis:5.0-alpine
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    network_mode: "host"
+    environment:
+      - REQUIREPASS=<password>
+      - CLIENTHOST=192.168.137.101
+      - CLIENTPORT=6379
+    volumes:
+      - "../../new-redis-data/redis1:/data"
+    restart: always
+
+  redis-slave:
+    image: redis:5.0-alpine
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    network_mode: "host"
+    environment:
+      - REQUIREPASS=<password>
+      - CLIENTHOST=192.168.137.101
+      - CLIENTPORT=6380
+    volumes:
+      - "../../new-redis-data/redis2:/data"
+    restart: always
